@@ -1,41 +1,54 @@
-void main(List<String> arguments) {
+void main (List <String> args) {
+
 }
+
 class Usuario{
   String nomeUsuario; 
   String nome;
   String matricula;
   String email;
 
-
   Usuario(this.nomeUsuario, this.nome, this.matricula, this.email); 
-  void cadastrar(){
 
-  }
+  void cadastrar(){}
+
 }
 
-abstract class Turma{
+class Turma{
   String nome;
 
   Turma(this.nome);
 }
 
-class Aluno {
-  String nome;
-  String matricula;
+
+class Aluno extends Usuario{
+  Usuario matricula_aluno;
   int data_nasc;
   int anoAtual;
   String campus;
   String cpf;
   String rg;
   Turma turma;
+  
+  Aluno(String nomeUsuario, String nome, String matricula, this.data_nasc, this.anoAtual, this.campus, this.cpf, this.rg, this.turma) :super (nomeUsuario, nome, matricula);
 
-  Aluno(this.nome, this. matricula, this.data_nasc, this.anoAtual, this.campus, this.cpf, this.rg, this.turma);
-
-  int idade(){
-    int idade = anoAtual - data_nasc;
+  int idade() {
+    int idade= anoAtual - data_nasc;
     return idade;
   }
+  void justificar(){}
+  
+}
 
+class Coordenador { 
+  Coordenador(String nomeUsuario, String matricula, String email) : super(nomeUsuario, matricula, email);
+
+}
+
+class Professor extends Usuario {
+  Turma turma;
+
+  Professor(String nome, String matricula, this.turma) : super (nome, matricula);
 }
 
 class PCampus {
@@ -46,13 +59,6 @@ class PCampus {
   PCampus(this.data, this.hora, this.presenca);
 }
 
-class Professor {
-  String nome;
-  String matricula;
-  Turma turma;
-
-  Professor(this.nome, this.matricula, this.turma);
-}
 
 class Disciplina {
   String nome;
@@ -60,15 +66,6 @@ class Disciplina {
   Turma turma;
 
   Disciplina(this.nome, this.professor, this.turma);
-}
-
-class Coordenador { 
-  Usuario n_usuario;
-  Usuario matricula;
-  Usuario email;
-
-  Coordenador(this.n_usuario, this.matricula, this.email);
-
 }
 
 class Aula {
