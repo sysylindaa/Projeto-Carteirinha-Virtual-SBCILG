@@ -10,7 +10,8 @@ class Usuario{
 
   Usuario(this.nomeUsuario, this.nome, this.matricula, this.email); 
 
-  void cadastrar(){}
+  void cadastrar(){
+  }
 
 }
 
@@ -36,7 +37,8 @@ class Aluno extends Usuario{
     int idade= anoAtual - data_nasc;
     return idade;
   }
-  void justificar(){}
+  void justificar(){
+  }
   
 }
 
